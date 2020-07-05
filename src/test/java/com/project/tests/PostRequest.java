@@ -1,11 +1,14 @@
 package com.project.tests;
 
+import com.project.constants.groups.PRIORITY;
+import com.project.constants.groups.TESTTYPE;
+import com.project.utility.BaseTest;
 import io.restassured.RestAssured;
 import org.testng.annotations.Test;
 
-public class PostRequestAutomation {
+public class PostRequest extends BaseTest {
 
-    @Test
+    @Test(testName = "Post_Request_Validation", groups = {PRIORITY.P1, TESTTYPE.SMOKE})
     private void postRequest(){
         RestAssured.baseURI = "https://reqres.in/api/users";
 
@@ -23,6 +26,5 @@ public class PostRequestAutomation {
                 .all()
                 .statusCode(201);
     }
-
 
 }
