@@ -1,2 +1,6 @@
 .idea/
 .target/
+.test-output/
+.idea
+.idea/libraries
+/results/*

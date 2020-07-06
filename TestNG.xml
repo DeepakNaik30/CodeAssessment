@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="RestAssuredTestSuite" verbose="1" thread-count="2" parallel="classes">
+    <test name="RestAssuredTests" >
+        <classes>
+            <class name="com.project.tests.GetRequest" />
+            <class name="com.project.tests.PostRequest" />
+        </classes>
+    </test>
+</suite>

@@ -2,11 +2,12 @@ package com.project.tests;
 
 import com.project.constants.groups.PRIORITY;
 import com.project.constants.groups.TESTTYPE;
+import com.project.utility.BaseTest;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
-public class GetRequest {
+public class GetRequest extends BaseTest {
 
     @Test(testName = "Get_Request_Validation", groups = {PRIORITY.P2, TESTTYPE.REGRESSION})
     private void getRequestAuto(){

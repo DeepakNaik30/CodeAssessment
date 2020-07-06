@@ -18,15 +18,17 @@ public class ExtentManager {
 
         htmlReporter.setAppendExisting(true);
         htmlReporter.config().setTheme(Theme.STANDARD);
-        htmlReporter.config().setEncoding("utf-8");
+        htmlReporter.config().setEncoding("UTF-8");
         htmlReporter.config().setProtocol(Protocol.HTTPS);
         htmlReporter.config().setDocumentTitle("Code Assessment for Emtec Inc");
         htmlReporter.config().setReportName("Emtec Code Assessment");
         htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
         htmlReporter.config().setChartVisibilityOnOpen(false);
-        htmlReporter.config().setTimeStampFormat("MM/dd/yyyy hh:mm:ss");
+        htmlReporter.config().setTimeStampFormat("MM/dd/yyyy hh:mm:ss a");
 
         extent = new ExtentReports();
+        extent.setSystemInfo("Created By", "Deepak Naik");
+        extent.setSystemInfo("Browser", "Chrome");
         extent.attachReporter(htmlReporter);
     }
 }

@@ -3,10 +3,7 @@ package com.project.utility;
 import com.project.reporting.ExtentManager;
 import com.project.reporting.ExtentReporting;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
@@ -15,29 +12,29 @@ import java.util.Date;
 public class BaseTest {
 
     @BeforeSuite(alwaysRun = true)
-    public void setup(ITestContext ctx){
+    public void beforeSuite(ITestContext ctx){
         initializeExtentReport();
         //setupSSL();
     }
 
     @BeforeMethod(alwaysRun = true)
-    public void baseTest(Method method){
+    public void baseMethod(Method method){
         String testName = method.getAnnotation(Test.class).testName();
-
-        //ExtentReporting.createTest(testName);
+        String[] testGroups = method.getAnnotation(Test.class).groups();
+        ExtentReporting.createTest(testName, method, testGroups);
     }
 
     @AfterSuite(alwaysRun = true)
-    public void tearDown(){
+    public void afterSuite(){
         ExtentReporting.endTest();
     }
 
-    private void initializeExtentReport(){
+    private void  initializeExtentReport(){
         if(ExtentManager.getInstance() == null){
             Date date = new Date();
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd_MM_yy");
             String formattedDate = dateFormat.format(date);
-            ExtentManager.createInstance("results/" + "Code_Assessment_" + formattedDate);
+            ExtentManager.createInstance("results/" + "Code_Assessment_" + formattedDate + ".html");
         }
     }
 
