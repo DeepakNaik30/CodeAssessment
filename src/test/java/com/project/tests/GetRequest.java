@@ -24,15 +24,5 @@ public class GetRequest extends BaseTest {
         System.out.println(response.getCookies());
 
         System.out.println(response.prettyPrint());
-
-//        RestAssured.given()
-//                .param("page", "2")
-//                .when()
-//                .get()
-//                .then()
-//                .assertThat()
-//                //.log()
-//               // .all()
-//                .statusCode(200);
     }
 }
